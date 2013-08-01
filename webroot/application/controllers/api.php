@@ -45,7 +45,8 @@ class Api extends CI_Controller{
 		if($tw_username == ""){
 			redirect('api/app');
 		}
-		$u = "https://api.twitter.com/1/favorites.json?count=200&screen_name=$tw_username";
+		$u = "https://api.twitter.com/1.1/favorites/list.json?count=200&screen_name=$tw_username";
+		//$u = "https://api.twitter.com/1/favorites.json?count=200&screen_name=$tw_username";
 		$data = json_decode($this->curl->simple_get($u));
 
 		if($data == ""){
